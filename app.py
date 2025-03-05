@@ -7,9 +7,19 @@ import streamlit as st
 
 car_data = pd.read_csv('vehicles_us.csv') # leer los datos
 
-st.header('Bienvenidos al Proyecto del Sprint7')
+st.write("""<h1 style="text-align:center";> Bienvenidos al Proyecto del Sprint7 </h1>""", unsafe_allow_html=True)
 
-hist_button_1= st.button('Construir histograma') # crear un botón
+st.write("""
+         <h3 style="text-align:justify";>
+         
+        En este proyecto utilizaremos herramientas de desarrollo de software vistas durante la teoria,
+         estaremos utilizando Render para la gestion de nuestra aplicacion web y la libreria streamlit
+         para mostrar los elementos en la página.
+
+        </h3>
+        """,unsafe_allow_html=True)
+
+hist_button_1= st.button('Construir histograma', key="button1") # crear un botón
         
 if hist_button_1: # al hacer clic en el botón
     # escribir un mensaje
@@ -21,7 +31,7 @@ if hist_button_1: # al hacer clic en el botón
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig1, use_container_width=True)
 
-hist_button_2 = st.button('Construir histograma') # crear un botón
+hist_button_2 = st.button('Construir grafica de dispersion', key="button2") # crear un botón
         
 if hist_button_2: # al hacer clic en el botón
     # escribir un mensaje
@@ -32,3 +42,18 @@ if hist_button_2: # al hacer clic en el botón
         
     # mostrar un gráfico Plotly interactivo
     st.plotly_chart(fig2, use_container_width=True)
+
+st.header("Uso de un checkbox")
+# crear una casilla de verificación
+build_histogram = st.checkbox('Mostrar lo aprendido en el sprint')
+
+if build_histogram: # si la casilla de verificación está seleccionada
+    st.write("""
+             En este sprint tuvimos las siguientes lecciones:\n
+             -Introduccion a las lineas de comando.\n
+             -Entorno de desarrollo.\n
+             -Git y Github.\n
+             -Python intermedio\n
+             -Entorno de desarrollo individual
+            
+            """)
